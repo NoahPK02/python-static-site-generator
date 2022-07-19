@@ -3,8 +3,7 @@ from pathlib import Path
 import shuti1
 
 class Parser:
-	def __init__(self):
-		self.extensions: List[str] = []
+	extensions: List[str] = []
 	
 	def valid_extension(self, extension):
 		return extension in self.extensions
@@ -13,12 +12,12 @@ class Parser:
 		raise NotImplementedError
 
 	def read(self, path):
-		with file as open(path, 'r'):
+		with open(path, 'r') as file:
 			return file.read()
 
 	def write(self, path, dest, content, ext='.html'):
 		full_path = dest / path.with_suffix(ext).name
-		with file as open(full_path, 'w'):
+		with open(full_path, 'w') as file:
 			file.write(content)
 
 	def copy(self, path, source, dest):
