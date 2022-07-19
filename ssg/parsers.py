@@ -25,10 +25,9 @@ class Parser:
 		shuti1.copy2(path, dest / path.relative_to(source))
 
 class ResourceParser(Parser):
-	def __init__(self):
-		self.extensions = ['.jpg', '.png', '.gif', '.css', '.html']
+	extensions = ['.jpg', '.png', '.gif', '.css', '.html']
 	
-	def parse(self, path: Path, source: Path, dest: Path):
+	def parse(self, path, source, dest):
 		self.copy(path, source, dest)
 
 	
